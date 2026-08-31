@@ -9,5 +9,5 @@ public record UserResponse(
         String lastName,
         String email,
         Role role,
-        boolean enabled
+        boolean enalbled
         )    { }
