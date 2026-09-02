@@ -26,11 +26,20 @@ public class CategoryService {
     }
     
     @Transactional
-    public Category create(Category category) {
+    public Category createCategory(Category category) {
         return categoryRepository.save(category);
     }
 
-    
+    public Category updateCategory(Long id, Category newCategory) {
+        Category foundCategory = categoryRepository.findById(id).orElseThrow();
+        foundCategory.setName(newCategory.getName());
+        return categoryRepository.save(foundCategory);
+    }
+
+    public void deleteCategory(Long id) {
+        Category foundCategory = categoryRepository.findById(id).orElseThrow();
+        categoryRepository.delete(foundCategory);
+    }
     
 
     
