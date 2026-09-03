@@ -2,7 +2,7 @@ package  mn.icode.model;
 
 import java.time.Instant;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,14 +28,14 @@ public class Course {
     private String description;
 
     @Column(nullable=false)
-    private boolean published=false;
+    private boolean published=true;
 
-    @JoinColumn
     @ManyToOne
+    @JoinColumn (name="category_id", nullable= false)
     public Category category;
 
-    @CreatedDate
-    @Column(nullable=false, updatable=false)
+    @CreationTimestamp
+    @Column(name="created_at", nullable=false, updatable=false)
     private Instant createdAt;
 
     public Course() {}
@@ -83,11 +83,5 @@ public class Course {
     public Instant getCreatedAt() {
         return createdAt;
     }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-
 
 }
