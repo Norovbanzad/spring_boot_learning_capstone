@@ -3,7 +3,6 @@ package mn.icode.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import mn.icode.dto.LessonRequest;
 import mn.icode.dto.LessonResponse;
@@ -31,7 +30,7 @@ public class LessonService {
         return lessonRepository.findById(id).orElseThrow();
     }
 
-    public LessonResponse createLesson(@RequestBody LessonRequest request) {
+    public LessonResponse createLesson(LessonRequest request) {
         Course foundCourse = courseRepository.findById(request.courseId()).orElseThrow();
 
         Lesson newLesson = new Lesson();
@@ -67,7 +66,12 @@ public class LessonService {
     }
 
     private LessonResponse toResponse(Lesson lesson) {
-        return new LessonResponse(lesson.getId(), lesson.getTitle(), lesson.getContent(), lesson.isPublished(), lesson.getPosition(), lesson.getCourse().getId());
+        return new LessonResponse(lesson.getId(), 
+                                lesson.getTitle(), 
+                                lesson.getContent(), 
+                                lesson.isPublished(), 
+                                lesson.getPosition(), 
+                                lesson.getCourse().getId());
     }
     
 }
