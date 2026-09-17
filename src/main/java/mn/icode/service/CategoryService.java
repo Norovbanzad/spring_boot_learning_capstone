@@ -32,7 +32,7 @@ public class CategoryService {
 
     public Category updateCategory(Long id, Category newCategory) {
         Category foundCategory = categoryRepository.findById(id).orElseThrow();
-        foundCategory.setName(newCategory.getName());
+        foundCategory.setCategoryName(newCategory.getCategoryName());
         return categoryRepository.save(foundCategory);
     }
 
