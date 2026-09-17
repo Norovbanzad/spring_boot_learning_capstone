@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/register.css}">
+<title>Admin Dashboard</title>
+</head>
+<body>
+	
+	<h1>E-Learning Platform Admin Dashboard</h1>
+	
+	<p>
+		Logged in as:
+		<strong th:text="${email}">admin@example.com</strong>
+	</p>
+	
+	<nav>
+		<ul>
+			<li>
+				<a th:href="@{/admin/courses}">manage courses</a>
+			</li>
+			<li>
+				<a th:href="@{/admin/enrollments}">manage enrollments</a>
+			</li>
+			<li>
+				<a th:href="@{/admin/categories}">manage categories</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Logout</button>
+	</form>
+	
+</body>
+</html>

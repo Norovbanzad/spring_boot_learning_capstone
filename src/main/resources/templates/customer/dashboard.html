@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/register.css}">
+<title>Student Dashboard</title>
+</head>
+<body>
+	
+	<h1>E-Learning Platform Dashboard</h1>
+	
+	<p>
+		Logged in as:
+		<strong th:text="${email}">customer@example.com</strong>
+	</p>
+	
+	<p>
+		<a th:href="@{/courses}">Browse courses</a>
+		<a th:href="@{/student/courses}">My courses</a>
+		<a th:href="@{/student/lessons}">My Orders</a>
+	</p>
+	
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Logout</button>
+	</form>
+	
+</body>
+</html>
