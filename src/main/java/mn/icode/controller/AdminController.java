@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller 
 public class AdminController {
     
-    @GetMapping("/admin")
+    @GetMapping("/admin/dashboard")
     public String adminDashboard(Principal principal, Model model) {
         model.addAttribute("email", principal.getName());
 

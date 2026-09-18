@@ -33,17 +33,17 @@ public class SecurityConfig {
         ).permitAll()
 
         .requestMatchers(
-            "/admin",
+        				"/admin",
                         "/admin/**"
         ).hasRole("ADMIN")
 
         .requestMatchers(
-                    "/api/categories/**",
+                    			"/api/categories/**",
 								"/api/courses/**",
 								"/api/enrollments/**").hasRole("ADMIN")
 
         .requestMatchers(
-            "/student/**",
+        				"/student/**",
                         "/api/student/**").hasRole("CUSTOMER")
         .anyRequest().authenticated()
         );
