@@ -19,7 +19,7 @@ public class CourseController {
     }
 
     @GetMapping
-    public List<Course> findAll() {
+    public List<CourseResponse> findAll() {
         return courseService.findAllCourses();
     }
 

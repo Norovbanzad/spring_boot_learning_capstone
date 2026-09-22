@@ -1,6 +1,6 @@
 package  mn.icode.model;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -28,7 +28,7 @@ public class Course {
     private String description;
 
     @Column(nullable=false)
-    private boolean published=true;
+    private boolean published;
 
     @ManyToOne
     @JoinColumn (name="category_id", nullable= false)
@@ -36,7 +36,7 @@ public class Course {
 
     @CreationTimestamp
     @Column(name="created_at", nullable=false, updatable=false)
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     public Course() {}
 
@@ -80,7 +80,7 @@ public class Course {
         this.category = category;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
