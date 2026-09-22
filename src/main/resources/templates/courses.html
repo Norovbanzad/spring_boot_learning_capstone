@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Courses | E-Learning</title>
+<link rel="stylesheet" th:href="@{/css/courses.css}">
+</head>
+<body>
+
+<nav class="navbar">
+	<a th:href="@{/}" class="brand">E-Learning</a>
+	<div class="nav-links">
+		<a th:href="@{/}">Home</a>
+		<a th:href="@{/courses}" class="active">Courses</a>
+		<a th:href="@{/login}">Login</a>
+	</div>
+</nav>
+
+<main class="page">
+	<h1 class="page-title">Our Courses</h1>
+	<div id="course-grid" class="course-grid"></div>
+	<p id="empty-state" class="empty-state" hidden>No courses available yet.</p>
+</main>
+
+<script th:src="@{/js/courses.js}"></script>
+
+</body>
+</html>

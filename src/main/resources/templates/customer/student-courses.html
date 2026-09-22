@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
+<title>Student Courses | E-Learning</title>
+<link rel="stylesheet" th:href="@{/css/courses.css}">
+<script th:src="@{/js/student-courses.js}" defer></script>
+</head>
+<body>
+
+<nav class="navbar">
+	<a th:href="@{/courses}" class="brand">E-Learning</a>
+	<div class="nav-links">
+		<a th:href="@{/}">Home</a>
+		<a th:href="@{/student/courses}" class="active">Courses</a>
+		<a th:href="@{/student/enrollments}">My Courses</a>
+		<a th:href="@{/login}">Login</a>
+	</div>
+</nav>
+
+<main class="page">
+	<h1 class="page-title">Student Courses</h1>
+	<p class="page-subtitle">Browse the catalog and enroll in a course.</p>
+	<div id="message" class="message" hidden></div>
+	<span id="current-email" th:text="${email}" hidden></span>
+
+	<section class="panel">
+		<h2 class="panel-title">Course Catalog</h2>
+		<div class="table-container">
+			<table>
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Created Date</th>
+					<th>Published</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody id="course-table-body">
+				</tbody>
+			</table>
+		</div>
+	</section>
+</main>
+
+</body>
+</html>
