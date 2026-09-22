@@ -23,8 +23,12 @@ public class CourseService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Course> findAllCourses() {
-        return courseRepository.findAll();
+//    public List<Course> findAllCourses() {
+//        return courseRepository.findAll();
+//    }
+    
+    public List<CourseResponse> findAllCourses() {
+    	return courseRepository.findAll().stream().map(this::toResponse).toList();
     }
 
     public Course findCourseById(Long id) {
