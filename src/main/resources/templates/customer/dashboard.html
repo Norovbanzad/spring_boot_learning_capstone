@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" th:href="@{/css/register.css}">
+<link rel="stylesheet" th:href="@{/css/dashboard.css}">
 <title>Student Dashboard</title>
 </head>
 <body>
@@ -17,8 +17,8 @@
 	
 	<p>
 		<a th:href="@{/courses}">Browse courses</a>
-		<a th:href="@{/student/courses}">My courses</a>
-		<a th:href="@{/student/lessons}">My Orders</a>
+		<a th:href="@{/student/courses}">My Courses</a>
+		<a th:href="@{/student/lessons}">My Lessons</a>
 	</p>
 	
 	<form th:action="@{/logout}" method="post">

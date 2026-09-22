@@ -206,11 +206,22 @@ async function deleteCourse(id) {
 }
 
 
+function formatDateTime(value) {
+	if (!value) return '';
+	if (Array.isArray(value)) {
+		const [y, m, d, h = 0, min = 0] = value;
+		return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+	}
+	return String(value).slice(0, 16);
+}
+
 function handleEdit(course) {
+	courseIdInput.value = course.id;
 	titleInput.value = course.title;
 	descriptionInput.value = course.description;
 	categoryInput.value = course.category_id;
 	published.checked = course.published;
+	createdAt.value = formatDateTime(course.createdAt);
 	
 	submitBtn.textContent = "Update course";
 }

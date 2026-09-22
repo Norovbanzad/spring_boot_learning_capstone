@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
+<title>Course Admin | E-Learning</title>
+<link rel="stylesheet" th:href="@{/css/courses.css}">
+<script th:src="@{/js/add-courses.js}" defer></script>
+</head>
+<body>
+
+<nav class="navbar">
+	<a th:href="@{/courses}" class="brand">E-Learning</a>
+	<div class="nav-links">
+		<a th:href="@{/courses}" class="active">Courses</a>
+		<a th:href="@{/login}">Login</a>
+		<a th:href="@{/register}">Register</a>
+	</div>
+</nav>
+
+<main class="page">
+	<h1 class="page-title">Course Admin</h1>
+	<p class="page-subtitle">Manage your courses from one place.</p>
+	<div id="message" class="message" hidden></div>
+
+	<section class="panel">
+		<h2 class="panel-title">Add a new course</h2>
+		<form id="course-form" class="course-form">
+			<input type="hidden" id="course-id" />
+
+			<div class="form-group">
+				<label for="course-title">Course Title</label>
+				<input type="text" id="course-title" placeholder="Course name..." required>
+			</div>
+
+			<div class="form-group">
+				<label for="course-description">Description</label>
+				<textarea rows="4" id="course-description" placeholder="Write a short description..."></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="course-category">Category</label>
+				<select id="course-category" required>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="createdAt">Created At</label>
+				<input type="datetime-local" id="createdAt" readonly />
+			</div>
+
+			<div class="form-group checkbox-group">
+				<input type="checkbox" id="published" />
+				<label for="published">Publish immediately</label>
+			</div>
+
+			<div class="form-buttons">
+				<button type="submit" id="submit-button" class="button primary-button">Add Course</button>
+				<button type="button" id="cancel-button" class="button secondary-button">Cancel</button>
+			</div>
+		</form>
+	</section>
+
+	<section class="panel">
+		<h2 class="panel-title">Existing courses</h2>
+		<div class="table-container">
+			<table>
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Created Date</th>
+					<th>Published</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody id="course-table-body">
+				</tbody>
+			</table>
+		</div>
+	</section>
+</main>
+
+</body>
+</html>

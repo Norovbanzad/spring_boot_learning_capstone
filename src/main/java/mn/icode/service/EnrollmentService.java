@@ -34,6 +34,13 @@ public class EnrollmentService {
                 .toList();
     }
 
+    public List<EnrollmentResponse> findEnrollmentsByUserId(Long userId) {
+        return enrollmentRepository.findAllByUserId(userId)
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
     public EnrollmentResponse findEnrollmentById(Long id) {
         Enrollment enrollment = enrollmentRepository.findById(id).orElseThrow();
         return toResponse(enrollment);

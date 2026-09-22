@@ -37,7 +37,7 @@ public class UserService {
 
         user.setFirstName(request.getFirstName().trim());
         user.setLastName(request.getLastName().trim());
-		user.setEmail(request.getEmail().trim());
+        user.setEmail(email);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user.setRole(Role.CUSTOMER);
@@ -57,7 +57,7 @@ public class UserService {
         User user = new User();
         user.setFirstName(request.firstName().trim());
         user.setLastName(request.lastName().trim());
-        user.setEmail(request.email().trim());
+        user.setEmail(email);
 
         String encryptedPassword = passwordEncoder.encode(request.password());
         user.setPassword(encryptedPassword);
