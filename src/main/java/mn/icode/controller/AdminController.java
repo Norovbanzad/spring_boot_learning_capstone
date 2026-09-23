@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller 
 @RequestMapping("/")
 public class AdminController {
@@ -37,4 +38,10 @@ public class AdminController {
 		return "admin/lessons";
 	}
     
+    @GetMapping("admin/enrollments")
+  	public String enrollmentsPageForAdmin(Principal principal, Model model) {
+  		model.addAttribute("email", principal.getName());
+  		return "admin/enrollment-list";
+  	}
+   
 }
