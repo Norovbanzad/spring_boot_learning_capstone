@@ -31,6 +31,16 @@ public class LessonController {
         return lessonService.findAllLessons();
     }
 
+    @GetMapping("/course/{courseId}")
+    public List<LessonResponse> findByCourse(@PathVariable Long courseId) {
+        return lessonService.findLessonsByCourse(courseId);
+    }
+
+    @PutMapping("/{id}/publish")
+    public LessonResponse togglePublished(@PathVariable Long id) {
+        return lessonService.togglePublished(id);
+    }
+
     @PostMapping()
     public LessonResponse create(@RequestBody LessonRequest request) {
         return lessonService.createLesson(request);

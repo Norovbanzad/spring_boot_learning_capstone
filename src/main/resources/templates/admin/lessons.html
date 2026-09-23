@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
+<meta name="course-id" th:content="${courseId}">
+<title>Lesson Admin | E-Learning</title>
+<link rel="stylesheet" th:href="@{/css/courses.css}">
+<script th:src="@{/js/lessons.js}" defer></script>
+</head>
+<body>
+
+<nav class="navbar">
+	<a th:href="@{/courses}" class="brand">E-Learning</a>
+	<div class="nav-links">
+		<a th:href="@{/admin/courses}" class="active">Courses</a>
+		<a th:href="@{/admin/categories}">Categories</a>
+		<a th:href="@{/login}">Login</a>
+	</div>
+</nav>
+
+<main class="page">
+	<h1 class="page-title">Course Lessons</h1>
+	<p class="page-subtitle" id="course-subtitle">Manage the lessons of this course.</p>
+	<div id="message" class="message" hidden></div>
+
+	<section class="panel">
+		<h2 class="panel-title">Lessons</h2>
+		<div class="table-container">
+			<table>
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Position</th>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Published</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody id="lesson-table-body">
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<a th:href="@{/admin/courses}" class="button secondary-button">Back to courses</a>
+</main>
+
+</body>
+</html>

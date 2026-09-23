@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class CoursePageController {
 	
-	@GetMapping("admin/courses")
-	public String coursesPageForAdmin(Principal principal, Model model) {
-		model.addAttribute("email", principal.getName());
-		return "admin/add-courses";
+	@GetMapping("")
+	public String coursesPage() {
+		return "index";
 	}
 	
 	@GetMapping("student/courses")
@@ -29,8 +28,7 @@ public class CoursePageController {
 		return "customer/enrollments";
 	}
 
-	@GetMapping("courses")
-	public String coursesPage() {
-		return "courses";
-	}
+	
+	
+	
 }

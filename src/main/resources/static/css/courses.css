@@ -170,6 +170,8 @@ body {
 /* ---------- More button ---------- */
 .more-button {
 	align-self: flex-start;
+	display: inline-block;
+	text-decoration: none;
 	background: var(--emerald);
 	color: var(--white);
 	border: none;
@@ -341,6 +343,7 @@ body {
 
 /* ---------- Buttons ---------- */
 .button {
+	display: inline-block;
 	padding: 0.6rem 1.5rem;
 	font-size: 0.95rem;
 	font-weight: 700;
@@ -348,6 +351,7 @@ body {
 	border-radius: 999px;
 	cursor: pointer;
 	font-family: inherit;
+	text-decoration: none;
 	transition: background 0.2s ease, transform 0.15s ease;
 }
 

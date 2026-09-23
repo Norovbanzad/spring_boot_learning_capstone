@@ -30,6 +30,17 @@ public class LessonService {
         return lessonRepository.findById(id).orElseThrow();
     }
 
+    public List<LessonResponse> findLessonsByCourse(Long courseId) {
+        courseRepository.findById(courseId).orElseThrow();
+        return lessonRepository.findByCourseIdOrderByPositionAsc(courseId).stream().map(this::toResponse).toList();
+    }
+
+    public LessonResponse togglePublished(Long id) {
+        Lesson foundLesson = lessonRepository.findById(id).orElseThrow();
+        foundLesson.setPublished(!foundLesson.isPublished());
+        return toResponse(lessonRepository.save(foundLesson));
+    }
+
     public LessonResponse createLesson(LessonRequest request) {
         Course foundCourse = courseRepository.findById(request.courseId()).orElseThrow();
 
