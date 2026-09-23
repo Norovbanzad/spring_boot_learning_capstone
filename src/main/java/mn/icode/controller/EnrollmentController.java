@@ -18,9 +18,10 @@ import mn.icode.dto.EnrollmentRequest;
 public class EnrollmentController {
     
     private final EnrollmentService enrollmentService;
-
+  
     public EnrollmentController(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
+        
     }
 
     @GetMapping
@@ -38,4 +39,5 @@ public class EnrollmentController {
         return enrollmentService.createEnrollment(request);
     }
     
+ 
 }
