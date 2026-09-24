@@ -8,6 +8,22 @@
 </head>
 <body>
 	
+	<nav class="navbar">
+	<a th:href="@{/admin/dashboard}" class="brand">E-Learning</a>
+	<div class="nav-links">
+		<a th:href="@{/admin/categories}">Categories</a>
+		<a th:href="@{/admin/courses}" class="active">Courses</a>
+		<a th:href="@{/admin/lessons}">Lessons</a>
+		<a th:href="@{/admin/enrollments}">Enrollments</a>
+		<a th:href="@{/login}">Login</a>
+	</div>
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">Logout</button>
+	</form>
+	
+</nav>
+	
+	<main class="container">
 	<h1>E-Learning Platform Admin Dashboard</h1>
 	
 	<p>
@@ -15,23 +31,23 @@
 		<strong th:text="${email}">admin@example.com</strong>
 	</p>
 	
-	<nav>
-		<ul>
-			<li>
-				<a th:href="@{/admin/courses}">manage courses</a>
-			</li>
-			<li>
-				<a th:href="@{/admin/enrollments}">manage enrollments</a>
-			</li>
-			<li>
-				<a th:href="@{/admin/categories}">manage categories</a>
-			</li>
-		</ul>
-	</nav>
+		<div class="cards">
+			<div class="card">
+				<button><a th:href="@{/admin/categories}">manage categories</a></button>
+			</div>
+			<div class="card">
+				<button><a th:href="@{/admin/courses}">manage courses</a></button>
+			</div>
+			<div class="card">
+				<button><a th:href="@{/admin/lessons}">manage lessons</a></button>
+			</div>
+			<div class="card">
+				<button><a th:href="@{/admin/enrollments}">manage enrollments</a></button>
+			</div>
+		</div>
 	
-	<form th:action="@{/logout}" method="post">
-		<button type="submit">Logout</button>
-	</form>
+	</main>
 	
+		
 </body>
 </html>

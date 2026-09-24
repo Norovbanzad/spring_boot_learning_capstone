@@ -11,22 +11,9 @@ const subtitle = document.querySelector("#course-subtitle");
 const csrfToken = document.querySelector('meta[name="_csrf"]').content;
 const csrfHeader = document.querySelector('meta[name="_csrf_header"]').content;
 
-async function loadCourse() {
-	try {
-		const response = await fetch(`${COURSE_API}/${courseId}`);
-		if (!response.ok) {
-			throw new Error("Course could not be loaded");
-		}
-		const course = await response.json();
-		subtitle.textContent = `Lessons for "${course.title}"`;
-	} catch (error) {
-		console.error(error.message);
-	}
-}
-
 async function loadLessons() {
 	try {
-		const response = await fetch(`${LESSON_API}/course/${courseId}`);
+		const response = await fetch(LESSON_API);
 		if (!response.ok) {
 			throw new Error("Lessons could not be loaded");
 		}
@@ -68,11 +55,16 @@ function renderLessons(lessons) {
 
 		const publishedField = document.createElement("td");
 		publishedField.textContent = lesson.published;
+		
+		const courseTitleField = document.createElement("td");
+		courseTitleField.textContent = lesson.courseTitle;
+
 
 		newRow.appendChild(idField);
 		newRow.appendChild(positionField);
 		newRow.appendChild(titleField);
 		newRow.appendChild(contentField);
+		newRow.appendChild(courseTitleField);
 		newRow.appendChild(publishedField);
 
 		const actionField = document.createElement("td");
@@ -125,5 +117,4 @@ function showMessage(text) {
 	}, 3000);
 }
 
-loadCourse();
 loadLessons();

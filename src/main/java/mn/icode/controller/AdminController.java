@@ -38,6 +38,12 @@ public class AdminController {
 		return "admin/lessons";
 	}
     
+    @GetMapping("admin/lessons")
+    public String lessonsPageForAdmin(Principal principal, Model model) {
+    	model.addAttribute("email", principal.getName());
+    	return "admin/lessons";
+    }
+    
     @GetMapping("admin/enrollments")
   	public String enrollmentsPageForAdmin(Principal principal, Model model) {
   		model.addAttribute("email", principal.getName());
