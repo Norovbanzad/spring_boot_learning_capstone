@@ -33,9 +33,51 @@ body {
 	letter-spacing: 0.5px;
 }
 
+.nav-menu {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1.5rem;
+	flex: 1;
+}
+
 .nav-links {
 	display: flex;
 	gap: 0.5rem;
+}
+
+.nav-toggle {
+	display: none;
+}
+
+.nav-burger {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+.nav-burger span {
+	display: block;
+	width: 24px;
+	height: 3px;
+	background: #ffffff;
+	border-radius: 2px;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(2) {
+	opacity: 0;
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-links a {
@@ -45,6 +87,14 @@ body {
 	padding: 0.5rem 1rem;
 	border-radius: 8px;
 	transition: background 0.2s ease, color 0.2s ease;
+}
+
+button {
+	padding: 0.5rem 0.9rem;
+	border-radius: 8px;
+	border: none;
+	font-weight: 700;
+	color: #076b45;
 }
 
 .nav-links a:hover {
@@ -62,36 +112,134 @@ body {
 	padding: 2.5rem 1.5rem 4rem;
 }
 
-.cards{
+.cards {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1.5rem
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin-top: 40px;
 }
 
 .card {
-	height: 200px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 	background: #ffffff;
 	border: 1px solid #e0cfae;
 	border-radius: 14px;
-	padding: 1.4rem;
-	display: flex;
-	gap: 0.8rem;
+	text-decoration: none;
+	color: #1c5c40;
 	box-shadow: 0 8px 24px rgba(11, 132, 87, 0.16);
-	transition: transform 0.2s ease, box-shadow 0.2 ease;
-	
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button {
-	border: none;
-	border-radius: 4px;
-	padding: 0.55rem 1rem;
-	color: #1c5c40;
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 14px 30px rgba(11, 132, 87, 0.22);
+}
+
+.card-thumb {
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+}
+
+.card-thumb svg {
+	width: 56px;
+	height: 56px;
+}
+
+.thumb-categories {
+	background: linear-gradient(135deg, #0b8457, #076b45);
+}
+
+.thumb-courses {
+	background: linear-gradient(135deg, #14a06b, #0b8457);
+}
+
+.thumb-lessons {
+	background: linear-gradient(135deg, #1db884, #0f9a63);
+}
+
+.thumb-enrollments {
+	background: linear-gradient(135deg, #35c49a, #14a06b);
+}
+
+.card-body {
+	padding: 1.1rem 1.2rem 0.6rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.card-title {
+	font-size: 1.1rem;
+	font-weight: 800;
+	line-height: 1.3;
+	color: #0b8457;
+}
+
+.card-subtitle {
+	font-size: 0.9rem;
+	line-height: 1.5;
+	color: #6f8a7c;
+	flex-grow: 1;
+}
+
+.card-footer {
+	padding: 0.6rem 1.2rem 1.1rem;
+}
+
+.manage-pill {
+	display: inline-block;
+	padding: 0.4rem 1.1rem;
+	border-radius: 999px;
+	background: #0b8457;
+	color: #ffffff;
+	font-size: 0.85rem;
 	font-weight: 700;
 	transition: background 0.2s ease, transform 0.15s ease;
 }
 
-button a {
-	text-decoration: none;
-	color: #1c5c40;
-	
+.card:hover .manage-pill {
+	background: #076b45;
+	transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+	.navbar {
+		flex-wrap: wrap;
+	}
+
+	.nav-burger {
+		display: flex;
+	}
+
+	.nav-menu {
+		display: none;
+		flex-basis: 100%;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.5rem;
+		padding-top: 0.5rem;
+	}
+
+	.nav-toggle:checked ~ .nav-menu {
+		display: flex;
+	}
+
+	.nav-links {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.nav-links a {
+		width: 100%;
+		text-align: center;
+	}
+
+	.nav-menu form button {
+		width: 100%;
+	}
 }
