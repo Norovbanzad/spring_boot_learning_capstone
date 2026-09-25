@@ -22,8 +22,8 @@ public class LessonService {
         this.lessonRepository = lessonRepository;
     }
   
-    public List<Lesson> findAllLessons() {
-        return lessonRepository.findAll();
+    public List<LessonResponse> findAllLessons() {
+        return lessonRepository.findAll().stream().map(this::toResponse).toList();
     }
 
     public Lesson findLessonById(Long id) {
@@ -82,7 +82,8 @@ public class LessonService {
                                 lesson.getContent(), 
                                 lesson.isPublished(), 
                                 lesson.getPosition(), 
-                                lesson.getCourse().getId());
+                                lesson.getCourse().getId(),
+                                lesson.getCourse().getTitle());
     }
     
 }

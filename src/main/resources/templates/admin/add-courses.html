@@ -11,9 +11,16 @@
 <body>
 
 <nav class="navbar">
-	<a th:href="@{/courses}" class="brand">E-Learning</a>
+	<a th:href="@{/admin/dashboard}" class="brand">E-Learning</a>
+	<input type="checkbox" id="nav-toggle" class="nav-toggle">
+	<label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">
+		<span></span>
+		<span></span>
+		<span></span>
+	</label>
 	<div class="nav-links">
-		<a th:href="@{/courses}" class="active">Courses</a>
+		<a th:href="@{/admin/categories}" class="active">Categories</a>
+		<a th:href="@{/admin/lessons}">Lessons</a>
 		<a th:href="@{/login}">Login</a>
 		<a th:href="@{/register}">Register</a>
 	</div>

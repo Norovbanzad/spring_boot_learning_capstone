@@ -27,7 +27,7 @@ public class LessonController {
     }
 
     @GetMapping
-    public List<Lesson> findAll() {
+    public List<LessonResponse> findAll() {
         return lessonService.findAllLessons();
     }
 
