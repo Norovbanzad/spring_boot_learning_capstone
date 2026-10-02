@@ -19,7 +19,7 @@ function renderEnrollments(enrollments) {
 	if (enrollments.length === 0) {
 		const newRow = document.createElement("tr");
 		const messageField = document.createElement("td");
-		messageField.textContent = "You are not enrolled in any course yet.";
+		messageField.textContent = "Noone enrolled in any course yet.";
 		newRow.appendChild(messageField);
 		tableBody.appendChild(newRow);
 		return;

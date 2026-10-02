@@ -6,8 +6,7 @@
 <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 <title>Admin Dashboard</title>
 </head>
-<body>
-	
+<body>	
 	<nav class="navbar">
 	<a th:href="@{/admin/dashboard}" class="brand">E-Learning</a>
 	<input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -19,10 +18,9 @@
 	<div class="nav-menu">
 		<div class="nav-links">
 			<a th:href="@{/admin/categories}">Categories</a>
-			<a th:href="@{/admin/courses}" class="active">Courses</a>
+			<a th:href="@{/admin/courses}">Courses</a>
 			<a th:href="@{/admin/lessons}">Lessons</a>
 			<a th:href="@{/admin/enrollments}">Enrollments</a>
-			<a th:href="@{/login}">Login</a>
 		</div>
 		<form th:action="@{/logout}" method="post">
 			<button type="submit">Logout</button>

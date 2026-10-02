@@ -19,17 +19,61 @@
 		<span></span>
 		<span></span>
 	</label>
-	<div class="nav-links">
-		<a th:href="@{/admin/courses}" class="active">Courses</a>
-		<a th:href="@{/admin/categories}">Categories</a>
-		<a th:href="@{/login}">Login</a>
+	<div class="nav-menu">
+		<div class="nav-links">
+			<a th:href="@{/admin/categories}">Categories</a>
+			<a th:href="@{/admin/courses}">Courses</a>
+			<a th:href="@{/admin/lessons}" class="active">Lessons</a>
+			<a th:href="@{/admin/enrollments}">Enrollments</a>
+		</div>
+		<form th:action="@{/logout}" method="post">
+			<button type="submit">Logout</button>
+		</form>
 	</div>
 </nav>
 
 <main class="page">
-	<h1 class="page-title">Course Lessons</h1>
+	<h1 class="page-title">Lesson Admin</h1>
 	<p class="page-subtitle" id="course-subtitle">Manage the lessons of this course.</p>
 	<div id="message" class="message" hidden></div>
+
+	<section class="panel">
+		<h2 class="panel-title">Add a new lesson</h2>
+		<form id="course-form" class="course-form">
+			<input type="hidden" id="lesson-id" />
+
+			<div class="form-group">
+				<label for="lesson-title">Lesson Title</label>
+				<input type="text" id="lesson-title" placeholder="Lesson name..." required>
+			</div>
+
+			<div class="form-group">
+				<label for="lesson-content">Content</label>
+				<textarea rows="4" id="lesson-content" placeholder="Overview..."></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="course-category">Course</label>
+				<select id="course-category" required>
+				</select>
+			</div>
+
+			<div class="form-group checkbox-group">
+				<input type="checkbox" id="published" />
+				<label for="published">Publish immediately</label>
+			</div>
+
+			<div class="form-group">
+				<label for="position">Lesson Position</label>
+				<input type="number" min="1" step="1" id="position" placeholder="Position Number..." required>
+			</div>
+
+			<div class="form-buttons">
+				<button type="submit" id="submit-button" class="button primary-button">Add Lesson</button>
+				<button type="button" id="cancel-button" class="button secondary-button">Cancel</button>
+			</div>
+		</form>
+	</section>
 
 	<section class="panel">
 		<h2 class="panel-title">Lessons</h2>
@@ -38,10 +82,10 @@
 				<thead>
 				<tr>
 					<th>ID</th>
-					<th>Position</th>
 					<th>Title</th>
 					<th>Content</th>
-					<th>Course Title</th>
+					<th>Course</th>
+					<th>Position</th>
 					<th>Published</th>
 					<th>Actions</th>
 				</tr>

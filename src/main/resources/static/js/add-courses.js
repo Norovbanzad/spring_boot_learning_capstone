@@ -61,6 +61,7 @@ function renderCourses(courses) {
 	    messageField.textContent = "No courses available";
 	    newRow.appendChild(messageField);
 	    tableBody.appendChild(newRow);
+		return;
 	  }
 	  
 	tableBody.innerHTML = "";

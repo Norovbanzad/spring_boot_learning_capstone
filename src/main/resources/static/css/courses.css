@@ -49,6 +49,14 @@ body {
 	letter-spacing: 0.5px;
 }
 
+.nav-menu {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1.5rem;
+	flex: 1;
+}
+
 .nav-links {
 	display: flex;
 	gap: 0.5rem;
@@ -61,6 +69,15 @@ body {
 	padding: 0.5rem 1rem;
 	border-radius: 8px;
 	transition: background 0.2s ease, color 0.2s ease;
+}
+
+
+button {
+	padding: 0.5rem 0.9rem;
+	border-radius: 8px;
+	border: none;
+	font-weight: 700;
+	color: #076b45;
 }
 
 .nav-links a:hover {
@@ -458,11 +475,9 @@ thead th:last-child {
 	border-top-right-radius: 10px;
 }
 
-tbody td {
+tbody td{
 	padding: 0.75rem 1rem;
-	border-bottom: 1px solid var(--border);
 	vertical-align: middle;
-	word-break: break-word;
 }
 
 tbody tr:nth-child(even) {

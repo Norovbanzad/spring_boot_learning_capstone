@@ -18,10 +18,16 @@
 		<span></span>
 		<span></span>
 	</label>
-	<div class="nav-links">
-		<a th:href="@{/admin/courses}" class="active">Courses</a>
-		<a th:href="@{/login}">Login</a>
-		<a th:href="@{/admin/categories}">Categories</a>
+	<div class="nav-menu">
+		<div class="nav-links">
+			<a th:href="@{/admin/categories}">Categories</a>
+			<a th:href="@{/admin/courses}">Courses</a>
+			<a th:href="@{/admin/lessons}">Lessons</a>
+			<a th:href="@{/admin/enrollments}" class="active">Enrollments</a>
+		</div>
+		<form th:action="@{/logout}" method="post">
+			<button type="submit">Logout</button>
+		</form>
 	</div>
 </nav>
 

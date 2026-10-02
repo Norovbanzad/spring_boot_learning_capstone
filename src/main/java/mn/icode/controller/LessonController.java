@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mn.icode.dto.LessonRequest;
 import mn.icode.dto.LessonResponse;
-import mn.icode.model.Lesson;
 import mn.icode.service.LessonService;
 
 @RestController
@@ -31,7 +30,7 @@ public class LessonController {
         return lessonService.findAllLessons();
     }
 
-    @GetMapping("/course/{courseId}")
+    @GetMapping("/courses/{courseId}")
     public List<LessonResponse> findByCourse(@PathVariable Long courseId) {
         return lessonService.findLessonsByCourse(courseId);
     }

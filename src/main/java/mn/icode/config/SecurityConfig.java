@@ -30,7 +30,8 @@ public class SecurityConfig {
 						"/js/**",
 						"/images/**",
 						"/api/health",
-						"/error"
+						"/error",
+                        "/api/users"
         ).permitAll()
 
         .requestMatchers(
